@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\FL\\Desktop\\applications\\appinventorysystem\\API-INVENTARIO-main\\INVENTARIO\\INVENTARIO.csproj": {}
+    "C:\\Users\\FL\\Desktop\\applications\\inventory-backend-test\\INVENTARIO\\INVENTARIO.csproj": {}
   },
   "projects": {
-    "C:\\Users\\FL\\Desktop\\applications\\appinventorysystem\\API-INVENTARIO-main\\INVENTARIO\\INVENTARIO.csproj": {
+    "C:\\Users\\FL\\Desktop\\applications\\inventory-backend-test\\INVENTARIO\\INVENTARIO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\FL\\Desktop\\applications\\appinventorysystem\\API-INVENTARIO-main\\INVENTARIO\\INVENTARIO.csproj",
+        "projectUniqueName": "C:\\Users\\FL\\Desktop\\applications\\inventory-backend-test\\INVENTARIO\\INVENTARIO.csproj",
         "projectName": "INVENTARIO",
-        "projectPath": "C:\\Users\\FL\\Desktop\\applications\\appinventorysystem\\API-INVENTARIO-main\\INVENTARIO\\INVENTARIO.csproj",
+        "projectPath": "C:\\Users\\FL\\Desktop\\applications\\inventory-backend-test\\INVENTARIO\\INVENTARIO.csproj",
         "packagesPath": "C:\\Users\\FL\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\FL\\Desktop\\applications\\appinventorysystem\\API-INVENTARIO-main\\INVENTARIO\\obj\\",
+        "outputPath": "C:\\Users\\FL\\Desktop\\applications\\inventory-backend-test\\INVENTARIO\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\FL\\AppData\\Roaming\\NuGet\\NuGet.Config",
