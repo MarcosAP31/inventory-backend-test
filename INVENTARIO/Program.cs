@@ -19,13 +19,7 @@ builder.Services.AddDbContext<SampleContext>(
 builder.Services.AddSingleton<cifrado>(); // Singleton
 builder.Services.AddScoped<ITokenService, TokenService>(); // Register ITokenService
 
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-builder.Services.AddTransient<cifrado>();
-builder.Services.AddTransient<TokenService>();
-
-List<string> CorsOriginAllowed = builder.Configuration.GetSection("AllowedOrigins").Get<List<string>>();
+/*List<string> CorsOriginAllowed = builder.Configuration.GetSection("AllowedOrigins").Get<List<string>>();
 string[] origins = CorsOriginAllowed != null ? CorsOriginAllowed.ToArray() : new string[] { "*" };
 
 builder.Services.AddCors(options =>
@@ -37,10 +31,20 @@ builder.Services.AddCors(options =>
         .AllowAnyOrigin()
         .AllowAnyMethod()
         .AllowAnyHeader()
+        .AllowCredentials()
         );
-});
-//builder.Services.AddScoped<GenerarCodigoCupon>();
+});*/
+
 var app = builder.Build();
+
+// Use your custom CORS middleware
+app.UseCorsMiddleware();
+
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+builder.Services.AddTransient<cifrado>();
+builder.Services.AddTransient<TokenService>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -49,9 +53,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "INVENTARIO v1"));
 }
 
-app.UseHttpsRedirection();
-app.UseCors("CorsPolicy");
 
+app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
