@@ -1,3 +1,6 @@
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+
 name: Build and deploy ASP.Net Core app to Azure Web App - appback-test
 
 on:
@@ -25,16 +28,6 @@ jobs:
       - name: dotnet publish
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
-      - name: Build Docker image
-        run: |
-          cd INVENTARIO
-          docker build -t marcosap31/inventario:v4 .
-
-      - name: Push Docker image to DockerHub
-        run: |
-          docker login -u ${{ secrets.marcosap31 }} -p "${{ secrets['Amkl-572#$LCVy'] }}"
-          docker push marcosap31/inventario:v4
-
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
@@ -53,12 +46,12 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: .net-app
-
-      - name: Deploy to Azure Web App using Docker
+      
+      - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'appback-test'
           slot-name: 'Production'
-          images: 'marcosap31/inventario:v4'
+          package: .
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_FF98357F58B34D94A0458D3DA5CF6623 }}
