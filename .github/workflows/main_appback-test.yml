@@ -30,7 +30,7 @@ jobs:
 
       - name: Push Docker image to a container registry (e.g., Docker Hub)
         run: |
-          docker login -u ${{ secrets.marcosap31 }} -p '${{ secrets.Amkl-572#$LCVy }}'
+          docker login -u ${{ secrets.marcosap31 }} -p "${{ secrets.Amkl-572#$LCVy }}"
           docker pull marcosap31/inventario:v4
       # - name: Upload artifact for deployment job
       #   uses: actions/upload-artifact@v3
