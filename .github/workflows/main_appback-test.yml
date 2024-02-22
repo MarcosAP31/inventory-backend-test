@@ -16,17 +16,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up .NET Core
-        uses: actions/setup-dotnet@v1
-        with:
-          dotnet-version: '8.x'
-          include-prerelease: true
+      # - name: Set up .NET Core
+      #   uses: actions/setup-dotnet@v1
+      #   with:
+      #     dotnet-version: '8.x'
+      #     include-prerelease: true
 
-      - name: Build with dotnet
-        run: dotnet build --configuration Release
+      # - name: Build with dotnet
+      #   run: dotnet build --configuration Release
 
-      - name: dotnet publish
-        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
+      # - name: dotnet publish
+      #   run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
       - name: Push Docker image to a container registry (e.g., Docker Hub)
         run: |
