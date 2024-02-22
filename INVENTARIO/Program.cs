@@ -21,6 +21,7 @@ builder.Services.AddTransient<cifrado>();
 builder.Services.AddScoped<ITokenService, TokenService>(); // Register ITokenService
 
 
+
 List<string> CorsOriginAllowed = builder.Configuration.GetSection("AllowedOrigins").Get<List<string>>();
 string[] origins = CorsOriginAllowed != null ? CorsOriginAllowed.ToArray() : new string[] { "*" };
 
