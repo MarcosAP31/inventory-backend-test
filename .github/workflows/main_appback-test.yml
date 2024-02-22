@@ -26,7 +26,9 @@ jobs:
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
       - name: Build Docker image
-        run: docker build -t marcosap31/inventario:v4 .
+        run: |
+          cd INVENTARIO
+          docker build -t marcosap31/inventario:v4 .
 
       - name: Push Docker image to DockerHub
         run: |
