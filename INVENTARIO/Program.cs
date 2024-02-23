@@ -29,7 +29,6 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("CorsPolicy",
         builder => builder
-        .WithOrigins(origins)
         .AllowAnyOrigin()
         .AllowAnyMethod()
         .AllowAnyHeader()
@@ -44,10 +43,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "INVENTARIO v1"));
 }
-
-app.UseHttpsRedirection();
 app.UseCors("CorsPolicy");
-
+app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
